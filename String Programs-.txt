@@ -1,0 +1,259 @@
+String Programs-
+o/p- ABBCCC
+class Main {
+    public static void main(String[] args) {
+        String str = "A1B2C3"; 
+        for(int i=0; i<str.length(); i++){
+          if(i%2==0){  //check if the index is even, letters are at even indexes(0,2,4), so only those are processed
+          char ch = str.charAt(i); //stores A,B,C
+          int num = str.charAt(i+1)-'0'; //Get the digit after letter and convert it into integer like str.charAt(3)--->'2'--->'2'-'0'---> 2
+          for(int j=0; j<num; j++){
+              System.out.println(ch);
+          }
+          }
+        }
+    }
+}
+
+first non repeating character-
+class Main {
+    public static void main(String[] args) {
+        String str = "aabbcdeff";
+        for(int i=0; i<str.length(); i++){
+            char ch = str.charAt(i);
+            int count=0;
+            for(int j=0; j<str.length(); j++){
+                if(str.charAt(j)==ch){
+                    count++;
+                }
+            }
+            if(count==1){
+              System.out.println(ch);
+              break;
+            }
+        }
+    }
+}
+
+Vowel and consonant Program-
+class Main {
+    public static void main(String[] args) {
+        String str="Selenium Webdriver";
+        str = str.toLowerCase();
+        int vowelcount=0;
+        int consonantcount=0;
+        String vowel="";
+        String consonant="";
+        for(int i=0; i<str.length(); i++){
+            char ch = str.charAt(i);
+            if(ch>='a' && ch<='z'){
+                if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u'){
+                    vowelcount++;
+                    vowel = vowel + ch;
+                }
+                else{
+                    consonantcount++;
+                    consonant = consonant + ch;
+                }
+            }
+        }
+        System.out.println(vowelcount);
+        System.out.println(consonantcount);
+        System.out.println(vowel);
+        System.out.println(consonant);
+    }
+}
+
+Palindrome String-
+
+class Main {
+    public static void main(String[] args) {
+        String[] words = {"abc", "car", "ada", "racecar", "cool", "madam"};
+        for(int i=0; i<words.length; i++){
+            String str = words[i];
+            String rev = "";
+            for(int j=str.length()-1; j>=0; j--){
+                rev = rev + str.charAt(j);
+            }
+            if(str.equals(rev)){
+                System.out.println(str);
+            }
+        }
+    }
+}
+
+Count occurrence of each character-
+class Main {
+    public static void main(String[] args) {
+        String str = "banana";
+        char[] arr = str.toCharArray();
+        int duplicate=0;
+        for(int i=0; i<arr.length; i++){
+            int count = 1;
+            for(int j=i+1; j<arr.length; j++){
+                if(arr[i]==arr[j]){
+                    count++;
+                    arr[j]='0';
+                }
+            }
+           if(arr[i]!='0'){
+               System.out.println(arr[i]+ "=" +count);
+               if(count>1){
+                   duplicate++;
+               }
+           } 
+        }
+        System.out.println(duplicate);
+    }
+}
+
+Hash map-
+
+Remove duplicate from String-
+class Main {
+    public static void main(String[] args) {
+        String[] arr = {"apple", "banana", "orange", "apple", "mango", "banana"};
+        for(int i=0; i<arr.length; i++){
+            boolean isduplicate = false;
+            for(int j=i+1; j<arr.length; j++){
+                if(arr[i]==arr[j]){
+                    isduplicate = true;
+                    break;
+                }
+            }
+            if(isduplicate==false){
+                System.out.println(arr[i]);
+            }
+        }
+    }
+}
+
+//program to find non repeating characters between two strings
+O/p- pplorng
+class Main {
+    public static void main(String[] args) {
+        String str1 = "apple";
+	    String str2 = "orange"; 
+        for(int i=0; i<str1.length(); i++){
+            boolean isduplicate = false;
+            for(int j=0; j<str2.length(); j++){
+                if(str1.charAt(i)==str2.charAt(j)){
+                    isduplicate = true;
+                    break;
+                }
+            }
+            if(isduplicate==false){
+                System.out.print(str1.charAt(i));
+            }
+        }
+        for(int i=0; i<str2.length(); i++){
+            boolean isduplicate = false;
+            for(int j=0; j<str1.length(); j++){
+                if(str2.charAt(i)==str1.charAt(j)){
+                    isduplicate = true;
+                    break;
+                }
+            }
+            if(isduplicate == false){
+                System.out.print(str2.charAt(i));
+            }
+        }
+    }
+}
+
+First Non-repeated character from the String Array-
+/*
+* First Non-repeated character from the String Array
+ 
+Ex:
+Input : { "array", "apple", "rat"}
+Output: y,a,r
+*/
+class Main {
+    public static void main(String[] args) {
+      //Input : { "array", "apple", "rat"}
+      //Output : y a r 
+      String[] arr = { "array", "apple", "rat"};
+      for(int i=0; i<arr.length; i++){
+          String word = arr[i];
+          for(int j=0; j<word.length(); j++){
+              char ch = word.charAt(j);
+              int count = 0;
+              for(int k=0; k<word.length(); k++){
+                  if(word.charAt(k)==ch){
+                      count++;
+                  }
+              }
+              if(count==1){
+                  System.out.print(ch + " ");
+                  break;
+              }
+          }
+      }
+    }
+}
+
+
+class Main {
+    public static void main(String[] args) {
+        String str = "Sujeet Rajput is an Automation Test Engineer ";
+        String[] words = str.split(" ");
+        //System.out.print(words.length);
+        for(int i=words.length-2; i>=0; i--){
+            System.out.print(words[i]+ " ");
+        }
+    }
+}
+
+String str1 = "abcde", str2 = "deabc";
+ 
+Write a logic to determine whether one string is a rotation of another  
+ 
+String str1 = "a8bc2de"; O/p-10;
+int sum = 0;
+for(int i=0; i<str1.length(); i++){
+char ch = str1.charAt(i);
+if(str.ch>='0' && ch<='9'){
+sum+= str1.charAt(i)-'0';
+}
+}
+sysout(sum);
+
+class Main {
+    public static void main(String[] args) {
+        String text = "Appium -Mobile Testing (Android/IOS) from Scratch + Frameworks Certified Software Test Automation Specialist (CSTAS) 2024 | Capgemini OCEAN Certified L1 - Test Automation Engineer - QA Automation - Selenium 2024 | Capgemini OCEAN Certified L1 - Test Automation Engineer - QA Automation - Selenium 2023 | Connected Manager 2023 | Certificate in Learning and Development 2023 | Capgemini OCEAN Certified L1 - Test Automation Engineer - QA Automation - API";
+        String[] words = text.split(" ");
+        for(int i=0; i<words.length; i++){
+            String word = words[i];
+            if(word.length()%2!=0){
+                int mid = word.length()/2;
+                System.out.println(word + "->" + word.charAt(mid));
+            }
+        }
+    }
+}
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+        String text = "Appium -Mobile Testing (Android/IOS) from Scratch + Frameworks Certified Software Test Automation Specialist (CSTAS) 2024 | Capgemini OCEAN Certified L1 - Test Automation Engineer - QA Automation - Selenium 2024 | Capgemini OCEAN Certified L1 - Test Automation Engineer - QA Automation - Selenium 2023 | Connected Manager 2023 | Certificate in Learning and Development 2023 | Capgemini OCEAN Certified L1 - Test Automation Engineer - QA Automation - API";
+        String[] words = text.split(" ");
+        for(int i=0; i<words.length; i++){
+            String word = words[i];
+            if(word.length()==4){
+                boolean isYear = true;
+                for(int j=0; j<word.length(); j++){
+                    if (!Character.isDigit(word.charAt(j))){
+                        isYear = false;
+                        break;
+                    }
+                }
+                if(isYear){
+                System.out.println(word);
+                }
+            }
+        }
+    }
+}

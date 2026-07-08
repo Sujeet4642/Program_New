@@ -1,0 +1,14 @@
+Xpath for make my trip-
+
+//li[@class='menu_Flights']/following-sibling::li[@class='menu_Buses']
+
+//ul[@class="makeFlex font12 headerIconsGap"]/child::li[@class='menu_Buses']
+
+Xpath for w3 school-
+//div[@id='tnb-search-suggestions']//a[contains(@class, 'search-suggestion-link') and contains(. , 'JavaScript Reference')]
+//*[@id='tnb-search-suggestions']//*[contains(text(), 'Script Reference')]
+//*[@id='tnb-search-suggestions']//*[contains(. , 'JavaScript Reference')]
+
+Xpath for cricbuzz-
+//a[text()='Suzie Bates']/ancestor::div[contains(@class, 'scorecard-bat-grid')]//div[contains(@class,'wb:text-sm')]
+

@@ -1,0 +1,147 @@
+TestNG Framework
+
+Test Cases execution flow-
+By default TestNG executed testcases in alphabetic manner, for execution test cases according to our requirements we have to provide priority like-
+@Test(priority = 1)- it will executes first
+@Test(priority = 2)- it will execute after priority 1
+after that all other @Test annotation scenarios executes.
+If there is any duplicate priority like
+@Test(priority = 2)
+@Test(priority = 2)
+then it will look for alphabetic order
+Default priority(consider priority as 0)- will execute before any priority like-
+@Test(priority = 1)
+@Test()
+Negative priority- like -@Test(priority = -5) @Test(priority = -3)
+@Test(priority = -5) it will execute before @Test(priority = -3)
+Negative priority will execute before any positive priority 
+  
+Exclude Test Case- can ignore test cases by two ways one is "enabled = false" and another one is by putting annotaion @Ignore like-
+@Test(priority = 4 , enabled = false)
+
+@Ignore
+@Test(priority = 3)
+
+testng.xml file- it will execute all test cases by using testng.xml file
+we can perform include and exclude test cases for executing and ignoring test cases
+
+testng.xml format-
+<suite name="Suite">
+<test thread-count="5" name="Test">
+<classes>
+<class name="testng.demo.OrangeHRMTestCases">
+<methods>
+<include name="loginToApplication"/>
+<include name="searchLeave"/>
+</methods>
+</class>
+</classes>
+</test>
+<!--  Test  -->
+</suite>
+<!--  Suite  -->
+
+<suite name="Suite">
+<test thread-count="5" name="Test">
+<classes>
+<class name="testng.demo.OrangeHRMTestCases">
+<methods>
+<exclude name="loginToApplication"/>
+<exclude name="searchLeave"/>
+</methods>
+</class>
+</classes>
+</test> <!--  Test  -->
+</suite> <!--  Suite  -->
+
+Data Provider- Data provider is used to execute particular scenario again and again with different data like background in cucumber-
+@DataProvider
+public Object [] [] getTestData(){
+		
+		
+Object [] [] data = new Object [2] [2] ;
+		
+data [0] [0] = "Admin";
+		
+data [0] [1] = "admin123" ;
+		
+data [1] [0] = "superAdmin";
+		
+data [1] [1] = "test@123" ;
+			
+return data ;
+
+Groups-
+When there is a requirement to run only few test cases only then we need grouping of that particular test cases by testng.xml. To achieve grouping we have to specify groups like-
+
+@Test(groups = login)
+public void login_1(){
+System.out.println("login 1");
+}
+
+In testng.xml we have to specify group name like-
+<suite name="Suite">
+<test thread-count="5" name="Test">
+
+<groups>
+<run>
+<include name = "login"></include>
+</run>
+</groups>
+
+<classes>
+<class name="testng.demo.OrangeHRMTestCases">
+</classes>
+</test> <!--  Test  -->
+</suite> <!--  Suite  -->
+
+Multiple groups in single test case-
+@Test(groups = {"login", "sanity"})
+public void login_1(){
+System.out.println("login 1");
+}
+
+In testng.xml execute test cases from different classes with same group name -
+<suite name="Suite">
+<test thread-count="5" name="Test">
+
+<groups>
+<run>
+<include name = "sanity"></include>
+</run>
+</groups>
+
+<classes>
+<class name="testng.demo.OrangeHRMTestCases">
+<class name="testng.demo.demoCases">
+</classes>
+</test> <!--  Test  -->
+</suite> <!--  Suite  -->
+
+
+Annotations-
+@Test annotation- before every scenario to understand TestNG that this scenario needs to be executed, this annotation can be implemented before class name as well so that whole class can we executed. TestNG consider only @Test annotation as test case.
+
+@BeforeMethod- it will execute before every method which is described with @Test annotation, also called pre-condition.
+
+@AfterMethod- it will execute after every method which is described with @Test annotation, also called post-condition.
+
+@BeforeTest- it will execute before every test
+
+@AfterTest- it will execute after every test
+
+@BeforeSuite- in testng.xml file we can have more than one suite when we defined @BeforeSuite than it will execute before running any of the test
+
+@AfterSuite- in testng.xml file we can have more than one suite when we defined @AfterSuite, it will execute once all the tests are executed
+
+@BeforClass- before test case we have to put @BeforeClass annotation not @Test annotation, it will execute before any @Test annotation testcases
+
+@AfterClass- before test case we have to put @AfterClass annotation not @Test annotation, it will execute after all @Test annotation testcases
+
+@BeforeGroups- Runs before any group test cases
+
+@AfterGroups- Runs after group test cases
+
+maven-archetype-quickstart
+
+

@@ -1,0 +1,187 @@
+1- can you briefly explain your current project and your role in automation
+2- rotate array by 2nd position to left 
+int[] arr = {1,2,3,4,5};
+o/p= 3,4,5,1,2
+3- find first non repeating character in a string
+String str = "aabbcdeff"
+4- Explain Collections
+5- What is staleElementReference exception and how to handle it
+6- How to upload multiple files and how to validate that all files are uploaded
+7- Maven life cycle
+8- Explain waits in selenium
+9- Difference between severity and priority
+10- How to handle git conflict
+11- How to achieve parallel execution in Cucumber
+12- How to fetch data from Excel
+13- How to invoke browser
+14- How to handle broken links in selenium
+15- Any challenges in your project
+16- Difference between HashMap and HashSet
+What are all the interface which you have used in your project?
+16- playwright 
+flaky test cases
+synchronization
+// Upload
+await page.getByLabel('Upload file').setInputFiles('tests/fixtures/sample.pdf');
+
+// Download
+const [ download ] = await Promise.all([
+  page.waitForEvent('download'),
+  page.getByRole('button', { name: 'Export' }).click()
+]);
+console.log(await download.path());
+
+//Ifrmae
+
+const frame = page.frameLocator('#editor-iframe');
+await frame.getByRole('button', { name: 'Run' }).click();
+
+await page.locator('custom-element').locator(':shadow .inner-button').click();
+
+Rest API-
+You must design an API to update only one field (e.g., email) of a user. Which HTTP method?
+
+Answer:
+
+Use PATCH (partial update)
+Do not use PUT unless replacing the full resource
+
+API call succeeds but nothing is returned. Which status code?
+Answer:
+✅ 204 No Content
+Used for:
+
+DELETE success
+Update without response body
+
+How do you pass path parameters and query parameters?
+Path Parameter
+given()
+    .pathParam("id", 5)
+.when()
+    .get("/users/{id}")
+.then()
+    .statusCode(200);
+
+Query Parameter
+given()
+    .queryParam("page", 2)
+    .queryParam("limit", 10)
+.when()
+    .get("/users")
+.then()
+    .statusCode(200);
+
+How do you handle authentication in Rest Assured?
+Basic Auth
+given()
+    .auth().basic("user", "pass")
+.when()
+    .get("/secure");
+Bearer Token (JWT)
+given()
+    .header("Authorization", "Bearer " + token)
+.when()
+    .get("/profile");
+OAuth 2.0
+given()
+    .auth().oauth2(token)
+.when()
+    .get("/data");
+
+How do you perform POST request with JSON payload?
+String payload = "{ \"name\": \"Sujeet\", \"job\": \"QA\" }";
+
+given()
+    .header("Content-Type", "application/json")
+    .body(payload)
+.when()
+    .post("/users")
+.then()
+    .statusCode(201);
+
+How do you handle HTTPS SSL certificate issue?
+given()
+    .relaxedHTTPSValidation()
+.when()
+    .get("https://self-signed-api.com")
+.then()
+    .statusCode(200);
+
+Difference between extract() and path()
+extract()-Get full responsepath
+path()-Extract single value
+
+extract() is used after then() to obtain the response or a value from the response chain.
+path() is used on an existing response object to read a specific json field.
+extract creates or returns the response, while path reads value from it.
+
+path-
+Already have Response
+Response response = requestfactory.createbooking(requestpayload)
+Now extract values
+int bookingid = response.path("bookingid")
+
+extract-
+Don't have response
+int booingid = given().body(requestpayload).when().post("/booking").then().statuscode(200).extract().path("bookingid") or extract().response()
+
+How do you handle multiple environments?
+✅ Use properties or config files.
+RestAssured.baseURI = config.getProperty("baseUrl");
+
+Question:
+Verify that /users/2 returns status code 200 and the user’s id is 2.
+Answer:
+given()
+.when()
+    .get("/users/2")
+.then()
+    .statusCode(200)
+    .body("id", equalTo(2));
+
+Question:
+Extract email from the response and print it.
+Answer:
+Response response =
+    given()
+    .when()
+        .get("/users/2")
+    .then()
+        .extract().response();
+
+String email = response.path("email");
+System.out.println(email);
+
+
+Ques- Suppose you added a new user using an HTTP POST request in Postman with the payload:
+    {
+      "name": "john doe"
+    }
+    What validations would you perform to verify that the user was added successfully?
+Ans- 1- Check HTTP Status Code (Status: 201 Created)
+2- Validate Response Body
+Ensure the response contains expected fields:
+{
+  "id": 101,
+  "name": "john doe",
+  "message": "User created successfully"
+}
+3. Verify Data via GET API
+Make a GET request to confirm user was actually saved:
+GET /api/users/101
+Response should:
+Return the newly created user
+Match same data
+4. Validate Headers
+Check important headers:
+✅ Content-Type: application/json
+✅ Location header (best practice)
+Location: /api/users/101
+5. Database Validation (if accessible)
+✅ Check DB directly:
+SELECT * FROM users WHERE name = 'john doe';
+
+
+
+ 

@@ -1,0 +1,248 @@
+Array Programs-
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {99, 99, 99, 99, 99};
+        int avg;
+        int Total=0;
+        for(int i=0; i<arr.length; i++){
+            Total = Total + arr[i];
+        }
+        avg = Total/arr.length;
+        System.out.println(Total);
+         System.out.println(avg);
+    }
+}
+
+Find largest element-
+class Main {
+    public static void main(String[] args) {
+       int[] arr = {10, 20, 80, 40, 50, 60};
+       int largest = arr[0];
+       for(int i=0; i<arr.length; i++){
+       if(largest<arr[i]){
+       largest = arr[i];
+       }
+   }
+      System.out.println(largest);
+ }
+
+}
+
+Find second largest element-
+class Main {
+    public static void main(String[] args) {
+       int[] arr = {10, 20, 80, 40, 50, 70};
+       int largest = arr[1];
+       int secondlargest = arr[0];
+       for(int i=2; i<arr.length; i++){
+           if(largest<arr[i]){
+               secondlargest=largest;
+               largest=arr[i];
+           }
+           else if(secondlargest<arr[i]){
+               secondlargest = arr[i];
+           }
+       }
+       System.out.println(secondlargest);
+}
+}
+
+Find smallest element-
+class Main {
+    public static void main(String[] args) {
+       int[] arr = {10, 20, 5, 40, 50, 70};
+       int smallest=arr[0];
+       for(int i=1; i<arr.length; i++){
+       if(smallest>arr[i]){
+           smallest=arr[i];
+       }
+   }
+       System.out.println(smallest);
+}
+}
+
+Find second smallest-
+class Main {
+    public static void main(String[] args) {
+       int[] arr = {10, 20, 5, 40, 50, 70};
+       int smallest=arr[0]; 
+       int secondsmallest=arr[1];
+       for(int i=2; i<arr.length; i++){
+         if(smallest>arr[i]){
+             secondsmallest=smallest;
+             smallest=arr[i];
+         }
+         else if(secondsmallest>arr[i]){
+             secondsmallest=arr[i];
+         }
+       }
+       System.out.println(secondsmallest);
+}
+}
+
+Descending order-
+class Main {
+    public static void main(String[] args) {
+       int[] arr = {10, 20, 5, 40, 50, 70};
+       for(int i=0; i<arr.length; i++){
+           for(int j=i+1; j<arr.length; j++){
+               if(arr[i]<arr[j]){
+                   int temp = arr[i];
+                   arr[i] = arr[j];
+                   arr[j] = temp;
+               }
+           }
+       }
+       for(int i=0; i<arr.length; i++){
+           System.out.print(arr[i] + " ");
+       }
+}
+}
+
+Ascending order-
+class Main {
+    public static void main(String[] args) {
+       int[] arr = {10, 20, 5, 40, 50, 70};
+       for(int i=0; i<arr.length; i++){
+           for(int j=i+1; j<arr.length; j++){
+               if(arr[i]>arr[j]){
+                   int temp=arr[i];
+                   arr[i]=arr[j];
+                   arr[j]=temp;
+               }
+           }
+       }
+       for(int i=0; i<arr.length; i++){
+       System.out.print(arr[i]+" ");
+       }
+}
+}
+
+Reverse an array-
+class Main {
+    public static void main(String[] args) {
+       int[] arr = {50, 40, 30, 20, 10};
+       for(int i=arr.length-1; i>=0; i--){
+           System.out.print(arr[i]+" ");
+       }
+}
+}
+
+Find duplicate element-
+class Main {
+    public static void main(String[] args) {
+       int[] arr = {20, 40, 10, 20, 10};
+       int count=0;
+       for(int i=0; i<arr.length; i++){
+           for(int j=i+1; j<arr.length; j++){
+               if(arr[i]==arr[j]){
+                   count++;
+                  System.out.println(arr[i]); 
+               }
+           }
+       }
+      System.out.println(count); 
+}
+}
+
+char count-
+class Main {
+    public static void main(String[] args) {
+       char[] arr = {'I', 'a', 'm', 'A', 'j', 'a', 'v', 'a', 'Q', 'A'};
+       int duplicate=0;
+       for(int i=0; i<arr.length; i++){
+           int countdup=1;
+           for(int j=i+1; j<arr.length; j++){
+               if(arr[i]==arr[j]){
+                   countdup++;
+                   arr[j]='0';
+               }
+           }
+           if(arr[i]!='0'){
+               System.out.println(arr[i]+"="+countdup);
+               if(countdup>1){
+                   duplicate++;
+               }
+           }
+       }
+       System.out.println(duplicate);
+}
+}
+
+Rotate array-
+class Main {
+    static void Rotate(int[] arr, int start, int end){
+        while(start<end){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+    public static void main(String[] args) {
+        int[] arr = {10,20,30,40,50};
+        int k=2;
+        k = k%arr.length;
+        Rotate(arr, 0, k-1);
+        Rotate(arr, k, arr.length-1);
+        Rotate(arr, 0, arr.length-1);
+        for(int i=0; i<arr.length; i++){
+           System.out.print(arr[i]+ " "); 
+        }
+    }
+}
+
+ 
+Missing element-
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,5};
+        int n=5;
+        int expectedsum = n*(n+1)/2;
+        int actualsum = 0;
+        for(int i=0; i<arr.length; i++){
+            actualsum = actualsum + arr[i];
+        }
+        int missing = expectedsum-actualsum;
+        System.out.println(missing);
+    }
+}
+
+Remove Duplicate from array-
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {20, 40, 10, 20, 10};
+        for(int i=0; i<arr.length; i++){
+            boolean isduplicate = false;
+            for(int j=i+1; j<arr.length; j++){
+                if(arr[i]==arr[j]){
+                    isduplicate = true;
+                    break;
+                }
+            }
+            if(isduplicate == false){
+                System.out.println(arr[i] + " ");
+            }
+        }
+    }
+}
+
+Find out the shortest array and its length from the the array group
+{ {1,2,3,4},{0,2,7},{4,12},{1,2,5,6} } =====>n
+
+class Main {
+    public static void main(String[] args) {
+            int [][] arr = {{1,2,3,4},{0,2,7},{4,12},{1,2,5,6}};
+            int[] shortest = arr[0];
+            for(int i=0; i<arr.length; i++){
+                if(shortest.length>arr[i].length){
+                    shortest=arr[i];
+                }
+            }
+            for(int i=0; i<shortest.length; i++){
+            System.out.println(shortest[i]+ " ");
+            }
+            System.out.println(shortest.length);
+    }
+}

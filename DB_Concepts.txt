@@ -1,0 +1,39 @@
+SQL DB-
+
+LIMIT-
+LIMIT is use to limit number of entry.
+select customerid from payment order by desc paymentdate limit 10;
+           |             |
+       column name     table name
+slect title,lengthfilm from film order by lengthfilm ASC limit 5; 
+
+select count(title) from film where lengthfilm <=50;
+
+BETWEEN- Any particular range
+select * from payment where payment_date BETWEEN '25-04-2026' AND 29-04-2026';
+
+NOT BETWEEN- Not in range
+select * from payment where payment_date BETWEEN '25-04-2026' AND 29-04-2026';
+
+IN- Use for any column value
+select * from payment where amount IN(0.99,1.98,1.99);
+select COUNT(*) from payment where amount IN(0.99,1.98,1.99); -- it will give count of payment for these amount
+select * from Customer where first_name IN('John', 'Jake');
+
+NOT IN - value not in column
+select * from payment where amount IN(0.99,1.98,1.99);
+
+LIKE- case sensitive
+ALIKE- not case sensitive
+select * from Customer where first_name LIKE 'J%' AND last_name LIKE 'S%';  o/p- name starts with J
+select * from Customer where first_name LIkE '%er%'; o/p- er is somewhere in the name eg Jennifer
+select * from Customer where first_name LIkE '_her%'; o/p it allows only one character before her eg sherry
+ NOT LIKE-
+select * from Customer where first_name LIkE '_her%';
+
+Knowledge test-
+select COUNT(amount) from payment where amount>500;
+select COUNT(*) from actor where first_name LIKE 'P%';
+select COUNT(DISTINCT(district)) from Address;
+select COUNT(*) from film where rating='R' AND Replacement_Cost BETWEEN 5 AND 10;
+select COUNT(*) from film where title LIKE '%Truman%;

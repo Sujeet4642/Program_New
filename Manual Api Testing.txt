@@ -1,0 +1,13 @@
+Manual Api Testing-
+
+https://github.com/vdespa/quick-introduction-to-postman/blob/main/simple-tool-rental-api.md
+
+Global Variables- Can be accessed throughout the workspace and can we used between collections
+Collection variables- limited to collection only
+Environment variables- specially dependent on Env of your testing like dev and QA env
+Data variables- Used for data driven testing
+local variables- use in the scripts sections local to the request
+
+API Testing using Rest Assured_Practitioner_Session 1
+
+https://capgemini-my.sharepoint.com/personal/poornima_krishnan_capgemini_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fpoornima%5Fkrishnan%5Fcapgemini%5Fcom%2FDocuments%2FRecordings%2FAPI%20Testing%20using%20Rest%20Assured%5FPractitioner%5FSession%202%2D20260210%5F094055%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E53b68703%2D504b%2D4dd4%2D9c0e%2D997bfbde3c1b

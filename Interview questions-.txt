@@ -1,0 +1,24 @@
+Interview questions-
+Tell me about yourself?
+Tell me about your roles and responsibilities?
+Tell me about your framework?
+Write syntax how you handle windows in selenium?
+Write post request using any payload
+How playwright is better than selenium? What are the advantages of using Playwright?
+How release happens?
+What is your sprint cycle?
+When do you automate?
+How do you find whether its a UI, or API or DB bug?
+Explain any major challenge faced in your project
+Tell me about your 1 bug you found for that you got appreciated.
+Tell me BDD framework? 
+What is feature file and step definition?
+What if we have empty feature file?
+Have you worked on performance testing, etl, aws?
+what was your team size? can you work alone?
+How to reverse a integer
+Fetch duplicate email from DB
+Drag and drop
+Static method and how do we call static
+Design pattern in java
+How to validate multiple uploaded files
