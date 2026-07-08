@@ -1,0 +1,10 @@
+Execute tests by using TestNG.xml file-
+1- one way is to use method name--> In testing.xml file use methods tag and include name like-
+<methods>
+<include name = "APIChaining"/>
+</methods>
+2- Using testing groups tags--> first declare groups name in test cases which you want to execute like- @Test(groups = {"Sanity"})
+
+Links-
+https://allurereport.org/docs/v2/install-for-windows/#install-from-an-archive
+https://restful-booker.herokuapp.com/apidoc/index.html
